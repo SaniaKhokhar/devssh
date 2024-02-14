@@ -19,7 +19,7 @@ router.post("/feedback", async (req, res) => {
 router.get("/feedback",async (req, res)=>{
     try{
         console.log("in get(/feedback)")
-        console.log(res.json(await feedback.find()))
+        // console.log(res.json(await feedback.find()))
         return res.json(await feedback.find());
     }
     catch(error){
