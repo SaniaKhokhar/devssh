@@ -1,0 +1,97 @@
+.feedback{
+    background-color: white;
+    overflow: scroll;
+    margin-top: 10%;;
+    margin-left: 25%;
+    border-radius: 3%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    /* height: 80%; */
+    /* md:max-w-2xl mx-auto md:shadow-lg md:rounded-lg md:mt-8 overflow-hidden */
+}
+
+.feedbackpageTitle{
+    padding: 4%;
+    background-image: linear-gradient(to right,rgb(79, 168, 169) ,#82dcdc);
+    font-weight: bold;
+    /* background-color: blue; */
+     /* from-cyan-400 to-blue-400 p-8 */
+}
+.feedbackbox{
+  background-color: #f7fafc; /* Assuming Tailwind's gray-100 translates to this hex */
+  padding: 1rem 2rem; /* Assuming px-8 translates to 1rem and py-4 translates to 2rem */
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  /* flex-grow : 1; */
+}
+
+
+.dtitle { /* Choose a descriptive class name */
+    display: block;
+    margin-top: 1rem; /* adjust if needed */
+    margin-bottom: 0.25rem; /* adjust if needed */
+    color: #94dede;;
+    /* #2d3740; Assuming Tailwind's slate-700 translates to this hex */
+    
+}
+  
+.titletextbox{
+    width: 100%;
+    border: 1px solid #000; /* Adjust border style and color if needed */
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.ddescription{
+    display: block;
+    margin-top: 1rem; /* Assuming Tailwind's spacing conventions */
+    margin-bottom: 0.25rem;
+    color: #94dede;
+}
+
+.descriptiontextbox{
+    width: "100%";
+    border: "1px solid #000"; /* Adjust border style and color if needed */
+    padding: "1rem";
+    border-radius: "0.5rem";
+}
+
+.feedbackcard{
+    margin: 2rem 0; /* Assuming "my-8" translates to 2rem margin */
+    display: flex;
+    gap: 1rem; /* Assuming "gap-8" translates to 1rem gap */
+    align-items: center;
+}
+
+.voteButton{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02); /* Assuming shadow-sm translates to this */
+    background-color: #f7fafc; /* Assuming shadow-gray-200 translates to this hex */
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem; /* Assuming py-1 translates to 0.5rem and px-4 translates to 1rem */
+    display: flex;
+    align-items: center;
+    gap: 0.25rem; /* Assuming gap-1 translates to 0.25rem */
+    color: #2d3740;
+}
+
+.feedbackitempopupdescription{
+    font-size: 1.125rem; /* or adjust this value if needed */
+    font-weight: 500; /* or adjust this value if needed */
+    margin-bottom: 2rem;
+    color: white;
+}
+.feedbackitemupvote{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem; /* Assuming px-8 translates to 1rem and py-2 translates to 0.5rem */
+    border-bottom: 1px solid #ddd;
+}
+
+.upvotepop{ /* Choose a meaningful class name */
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem; /* Assuming px-8 translates to 1rem and py-2 translates to 0.5rem */
+    border-bottom: 1px solid #ddd; /* Adjust border style and color if needed */
+}

@@ -1,0 +1,22 @@
+<h2 style={{textAlign:"center"}}>{section} Chat Page</h2>
+      <div className="chat">
+        {/* <Box> */} 
+        <div className="chatresponse">
+          {/* { response ? <p><b>Response : </b><br/> {response}</p> : "" } */}
+          {response ? <p><b>Response</b>: <br /> {response.map((lines,index) => (
+            <p key={index}>{lines}</p>
+          ))}</p> : ""}
+          
+        </div>
+        {/* </Box> */}
+        <div className="chatbox">
+          <input
+          className="chat-input"
+            name="text"
+            value={message}
+            onChange={(e) => { setMessage(e.target.value) }}
+            placeholder="Type your message..."
+          />
+          <button className="chat-button" onClick={handleSendMessage}>Send</button>
+        </div>
+      </div>

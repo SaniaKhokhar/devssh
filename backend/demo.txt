@@ -1,0 +1,3 @@
+"backend" : "nodemon index.js" ,
+    "frontend" : "npm start cd.. cd frontend",    
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""

@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  /* overflow-y: hidden; *//* Hide vertical scrollbar */
+  overflow-x: hidden; 
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* store basic CSS for all pages */
+
+
+/* *: This is the universal selector. It selects all HTML elements on the page.
+margin: 0;: This sets the margin of all elements to 0. The margin is the space outside the border of an element.
+padding: 0;: This sets the padding of all elements to 0. Padding is the space between the content of an element and its border.
+box-sizing: border-box;: This changes the box model for all elements to border-box. The border-box box model includes the padding and border within the total width and height of an element, so setting this property ensures that the width and height you specify for an element include its padding and border.
+font-family: sans-serif;: This sets the default font family for all elements to a generic sans-serif font. If a specific font is not available, the browser will use a generic sans-serif font. */
+
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: whitesmoke;
+}
+
+.container.theme {
+  background-color: beige;
+}

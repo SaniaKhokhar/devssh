@@ -1,0 +1,29 @@
+.button{
+    display: flex;
+    /* background-color: #3b82f6; Tailwind's blue-500 equivalent */
+    align-items: center;
+    gap: 2px;
+    padding: 4px 16px; /* px-4 py-1 */
+    border-radius: 0.4rem; /* rounded-md */
+    color: #fff;
+    opacity: 0.9;
+}
+
+.my-button { /* Choose a descriptive class name */
+  display: flex;
+  background-color: #3B82F6; /* Assuming bg-blue-500 translates to this hex */
+  align-items: center;
+  gap: 0.5rem; /* Assuming gap-2 translates to 0.5rem */
+  padding: 0.5rem 1rem; /* Assuming px-4 translates to 1rem and py-1 translates to 0.5rem */
+  border-radius: 0.5rem;
+  color: #fff; /* Assuming text-white translates to #fff */
+  opacity: 0.9; /* Assuming text-opacity-90 translates to opacity: 0.9 */
+}
+
+/* avatar  */
+.icon{ /* Choose a descriptive class name */
+    border-radius: 50%; /* rounded-full translates to 50% border-radius */
+    background-color: #2a67c2; /* Assuming bg-blue-300 translates to this hex */
+    width: 1.5rem; /* Assuming w-12 translates to 1.5rem */
+    height: 1.5rem; /* Assuming h-12 translates to 1.5rem */
+  }
