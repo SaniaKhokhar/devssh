@@ -423,7 +423,7 @@ app.use('/api/feedback',require('./routes/feedback'))
 // app.use('/api/votes', require('./routes/feedback'))
 
 app.use('/api/review', require('./routes/reiew'))
-
+app.use("/profile", require("./routes/profile"));
 app.listen(PORT, () => {
   console.log(`Backend is running on port ${PORT}..`);
 });

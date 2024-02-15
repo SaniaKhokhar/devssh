@@ -7,21 +7,27 @@ import yolow from "../../Assest/yolow.png";
 import userb from "../../Assest/userb.png";
 import userw from "../../Assest/userw.png";
 import Login from "../Login/Login";
-import { Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserProfile from "../Login/UserProfile";
 
 const Navbar = ({ mode, setMode }) => {
   // toggle finction --> link it with togglw icon
   const toggle_mode = () => {
     mode === "light" ? setMode("dark") : setMode("light");
   };
-  
+
+  const userId = UserProfile.getId();
+  const userName = UserProfile.getUsername();
+
+  const navigate = useNavigate();
+
+  const handleProfile = () => {
+    navigate(`/profile/${userId}`);
+  };
+
   return (
     <div className="navbar">
-      <img
-        src={mode === "light" ? yolob : yolow}
-        alt="YOLO"
-        className="logo"
-      />
+      <img src={mode === "light" ? yolob : yolow} alt="YOLO" className="logo" />
 
       {/* <ul>
         <li>Home</li>
@@ -31,6 +37,10 @@ const Navbar = ({ mode, setMode }) => {
           <Link to="/login">Login</Link>
         </li>
       </ul> */}
+
+      <div className="username">
+        <p>Welcome {userName && <p>{userName}</p>}</p>
+      </div>
 
       <ul>
         <li>
@@ -53,11 +63,10 @@ const Navbar = ({ mode, setMode }) => {
         alt="Light mode"
         className="toggle"
       />
+
       {/* User logo */}
       <img
-        // onClick={() => {
-        //   toggle_mode();
-        // }}
+        onClick={handleProfile}
         src={mode === "light" ? userb : userw}
         alt="User"
         className="toggle"

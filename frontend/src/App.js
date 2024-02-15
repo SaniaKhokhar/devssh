@@ -8,6 +8,7 @@ import Login from "./Components/Login/Login";
 import Signup from "./Components/Login/Signup";
 import Dashboard from "./Components/Login/Dashboard";
 import ReviewToast from "./Components/Review/ReviewToast";
+import Profile from "./Components/Profile/Profile"
 const App = () => {
   // for dark light mode
   const [mode, setMode] = useState("light");
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile/:userId" element={<Profile/>}/>
 
         {/* <Route path="/login" component={Login} /> */}
       </Routes>

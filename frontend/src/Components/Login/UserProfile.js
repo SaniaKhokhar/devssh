@@ -3,9 +3,19 @@ var UserProfile = (function () {
   var email = "";
   var username = "";
   var image = user_img;
+  var id = "";
+
+  var getId = function () {
+    console.log(id);
+    return id;
+  };
 
   var getEmail = function () {
     return email; // Or pull this from cookie/localStorage
+  };
+
+  var setId = function (n_id) {
+    id = n_id;
   };
 
   var setEmail = function (n_email) {
@@ -39,9 +49,11 @@ var UserProfile = (function () {
     getEmail: getEmail,
     setEmail: setEmail,
     getUsername: getUsername,
+    getId: getId,
     setUsername: setUsername,
     getImage: getImage,
     setImage: setImage,
+    setId: setId,
     clearDetails: clearDetails,
   };
 })();

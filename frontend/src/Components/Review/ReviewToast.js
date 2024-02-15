@@ -101,7 +101,7 @@ export default function ReviewToast() {
 
     return (
         <>
-            <button onClick={notify}>Notify!</button>
+            {/* <button onClick={notify}>Notify!</button> */}
             <ToastContainer position="bottom-right" autoClose={5000} theme="dark" />
 
         </>
