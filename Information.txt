@@ -1,0 +1,52 @@
+folders :
+
+routes : contains all routes of application --> declare routes endpoints
+contoller : it contains control functions --> controll all incoming API request over routes
+utils: contains utiity functions
+config: contains required all configuration used in application
+
+Database connection :
+
+use mongoDB atlas
+.env
+db.js
+reference -> mongoosejs.com for set basic connection with Database
+
+Rootfile = index.js
+
+app.js --> handles all application code
+
+db.js --> check the connection to database 
+
+------------------------------------------
+
+register login on online portal and directly gets APIs keys
+
+------------------------------------------
+
+Morgan package:
+https://www.youtube.com/watch?v=F2eQRlBX6Hs
+-> it is one type of middleware which works as one login tool
+-> use in HTTP servers 
+
+-> ex: http://localhost:5000/api/v1 --> get "GET /api/v1 404 3.705 ms - 145: on terminal
+
+
+------------------------------------------
+in chatModel.js
+-> //  use "randomUUID" : to generate unique identifiers enhances the reliability and redundancy of your system by providing globally unique identifiers for entities, facilitating data integrity, scalability, fault tolerance, and security. This ensures that your system can operate efficiently and consistently across distributed and heterogeneous environments.
+--> there were other this type options is available like(uuid, nanid, shortid)
+
+------------------------------------------
+in password of user --> we use bcrypt for increase security
+
+SignUp validation:
+1) name is not be empty
+2) email formate
+3) password length limitation
+ 
+for this validation before jump into user's sighup we add one another middleware --> which do user validation 
+
+middleware is get execute before request is proccessed
+
+use: https://express-validator.github.io/docs
