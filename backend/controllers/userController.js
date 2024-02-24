@@ -1,7 +1,7 @@
 // userController for handles user routes requests
 const { Request, Response, NextFunction } = require("express");
 const User = require("../models/userModel.js");
-const { hash } = require("bcrypt");
+const { hash, compare } = require("bcrypt");
 
 // get all user
 const getAllUser = async (
@@ -23,6 +23,35 @@ const getAllUser = async (
   }
 };
 
+// user login
+const userLogin = async (
+  req = Request,
+  res = Response,
+  next = NextFunction
+) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(401).send("User is not Registered");
+    }
+    // "campare" is use for verification of password
+    const isPasswordCorrect = await compare(password, user.password);
+    if (!isPasswordCorrect) {
+      return res.status(403).send("Incorrect password");
+    }
+    // ----------------------------------------------------
+    return res.status(201).json({
+      message: "User logged in successfully.",
+      id: user._id.toString(),
+    });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Error in user login process", cause: error.message });
+  }
+};
+
 // user signup
 const userSignup = async (
   req = Request,
@@ -31,6 +60,10 @@ const userSignup = async (
 ) => {
   try {
     const { name, email, password } = req.body;
+    const existingUser = await User.findOne({ email: email });
+    if (existingUser) {
+      return res.status(401).send("User is already signed up");
+    }
     const hashPassword = await hash(password, 10);
     const user = new User({ name, email, password: hashPassword });
     await user.save();
@@ -39,12 +72,12 @@ const userSignup = async (
       message: "User signed up successfully.",
       id: user._id.toString(),
     });
-  } catch (err) {
-    console.error(err); // Log the error for debugging purposes
+  } catch (error) {
+    console.error(error); // Log the error for debugging purposes
     return res
       .status(500)
-      .json({ message: "Error in user signup process", cause: err.message });
+      .json({ message: "Error in user signup process", cause: error.message });
   }
 };
 
-module.exports = { getAllUser, userSignup };
+module.exports = { getAllUser, userSignup, userLogin };
