@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("./db");
 const userdb = require("./model/userSchema");
-
+const chatRoutes = require('./routes/chatRoutes')
 const PORT = 6010;
 
 const session = require("express-session");
@@ -77,22 +77,6 @@ passport.use(
   )
 );
 
-// passport.use(new LocalStrategy(
-//     function (email, password, done) {
-//         console.log(email, password)
-//         userdb.findOne({ email: email }, function (err, user) {
-//             if (err) { return done(err); }
-//             if (!user) { return done(null, false, { message: 'Incorrect username' }); }
-//             // if (!user.password == password) { return done(null, false, {message: 'Incorrect password'}); }
-//             if (!bcrypt.compareSync(password, user.password)) {
-//                 return done(null, false, { message: 'Incorrect password' });
-//             }
-
-//             return done(null, user);
-//         });
-//     }
-// ));
-
 passport.use(
   new LocalStrategy(
     { usernameField: "email" }, // Specify the field containing the username (email in this case)
@@ -116,17 +100,6 @@ passport.use(
   )
 );
 
-// passport.serializeUser((user, done) => {
-//     if (user) {
-//         return done(null, user)
-//     }
-//     return done(null, false)
-// })
-
-// passport.deserializeUser((user, done) => {
-//     return done(null, user)
-// })
-
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -140,34 +113,12 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// app.post('/user/login',
-//     passport.authenticate('local', { failureRedirect: '/login' }),
-//     function (req, res) {
-//         res.redirect('/dashboard');
-//         res.json(req.user)
-//     });
-
 function isAuthenticated(req, res, done) {
   if (req.user) {
     return done();
   }
   return res.redirect("/");
 }
-
-// app.post('/user/login', (req, res) => {
-//     passport.authenticate('local', {
-//         failureRedirect: '/login',
-//         // failureFlash: true // Add this line to enable flash messages for failure
-//     })(req, res, (err) => {
-//         if (err) {
-//             console.error(err);
-//             res.status(500).json({ message: 'Internal Server Error' });
-//         } else {
-//             // Successful login
-//             res.status(200).json({ user: req.user });
-//         }
-//     });
-// });
 
 app.post(
   "/user/login",
@@ -246,12 +197,6 @@ app.get("/login/success", async (req, res) => {
     res.status(400).json({ message: "Not Authorized" });
   }
 });
-
-// const LoginStrategy = require("./LoginStrategy")
-// const SignupStrategy = require("./SignupStrategy")
-
-// passport.use("local-login", LoginStrategy)
-// passport.use("local-registry", SignupStrategy)
 
 // Signup
 app.post("/signup", async (req, res) => {
@@ -342,67 +287,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// //Login passport authentication
-// app.post("/api/login", function (req, res) {
-//     passport.authenticate("local-login", function (error, user, info) {
-//         if (error) {
-//             return res.status(500).json({
-//                 message: error || "Something happend",
-//                 error: error.message || "Server error",
-//             });
-//         }
-
-//         req.logIn(user, function (error, data) {
-//             if (error) {
-//                 return res.status(500).json({
-//                     message: error || "Something happend",
-//                     error: error.message || "Server error",
-//                 });
-//             }
-//         });
-
-//         user.isAuthenticated = true;
-//         return res.json(user);
-//     })(req, res);
-// });
-
-// //Register passport authentication
-// app.post("/api/signup", (req, res) => {
-//     passport.authenticate("local-register", function (error, user, info) {
-//         if (error) {
-//             return res.status(500).json({
-//                 message: error || "Something happend",
-//                 error: error.message || "Server error",
-//             });
-//         }
-//         req.logIn(user, function (error, data) {
-//             if (error) {
-//                 return res.status(500).json({
-//                     message: error || "Something happend",
-//                     error: error.message || "Server error",
-//                 });
-//             }
-//             return res.json(user);
-//         });
-//     })(req, res);
-// });
-
-// // get user details
-// app.get("/api/getDetails", (req, res) => {
-//     User.findOne(
-//         { email: req.session.passport.user.email },
-//         function (err, user) {
-//             if (err) console.log(err);
-
-//             const { username } = user;
-
-//             res.status(200).send({
-//                 username,
-//             });
-//         }
-//     );
-// });
-
 app.get("/", async (req, res) => {
   // res.send("Hello...")
   if (req.user) {
@@ -421,7 +305,7 @@ app.use('/api/chat', require('./routes/chat'))
 // app.use('/api/chat',require('./routes/chat'))
 app.use('/api/feedback',require('./routes/feedback'))
 // app.use('/api/votes', require('./routes/feedback'))
-
+app.use("/api/cchat", chatRoutes)
 app.use('/api/review', require('./routes/reiew'))
 app.use("/profile", require("./routes/profile"));
 app.listen(PORT, () => {
