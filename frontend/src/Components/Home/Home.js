@@ -24,7 +24,7 @@ const Home = () => {
 
         style={{boxShadow: "10px 10px 30px #070F2B" }}
 
-        onClick={navigate('/chat/Yoga')} 
+        onClick={() => navigate('/chat/Yoga')} 
         className="talkButton">
 
         Let's talk with Curio!

@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import userw from "../../Assest/userw.png"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // const pages = [
 //   {
@@ -39,6 +39,8 @@ const settings = ['Login'];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const navigate = useNavigate()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -145,6 +147,13 @@ function Navbar() {
                   onClick={handleCloseUserMenu}>
                   About us
               </MenuItem>
+              <MenuItem
+                  // style={{backgroundColor: "#070F2B", color: "white"}}
+                  component={Link}
+                  to={'/login' }
+                  onClick={handleCloseUserMenu}>
+                  Login
+              </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -168,26 +177,53 @@ function Navbar() {
           </Typography>
           <Box 
             sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+
+            {/* {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
+
+            <Button
+                onClick={() => navigate('/')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Home
+            </Button>
+            <Button
+                onClick={() => navigate('/feedback')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Feedback
+            </Button>
+
+            <Button
+                onClick={() => navigate('/aboutus')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                About Us
+            </Button>
+            <Button
+                onClick={() => navigate('/login')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                login
+            </Button>            
           </Box>
 
           <Box 
           
           sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open Profile">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="profile" src={userw} />
               </IconButton>
             </Tooltip>
-            <Menu
+            {/* <Menu
 
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -205,14 +241,14 @@ function Navbar() {
               onClose={handleCloseUserMenu}
               
             >
-              {/* {settings.map((setting) => (
+               {settings.map((setting) => (
                 <MenuItem
                   style={{backgroundColor: "#070F2B", color: "white"}}
                   
                   key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))} */}
+              ))} 
 
               <MenuItem
                   // style={{backgroundColor: "#070F2B", color: "white"}}
@@ -222,7 +258,7 @@ function Navbar() {
                   Login
                 </MenuItem>
 
-            </Menu>
+            </Menu> */}
           </Box>
         </Toolbar>
       </Container>

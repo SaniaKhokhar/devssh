@@ -1,15 +1,35 @@
 
-*{
-    color: white;
-}
 
 .card-container{
     background-color: #070F2B;
-    margin: 5%;
+    /* margin: 2%; */
     border: 1px solid black;
     border-radius: 20px;
+    color:white;
+    max-height: 100%;
+    
 }
 
 .quoted-text{
     background-color: #535C91;
+}
+
+.img-container{
+    background-color: #070F2B;
+    
+}
+
+.cardMedia{
+    max-width: 50%;
+    
+    height: auto;
+    color: white;
+    
+    border-radius: 50%;
+}
+
+.cardHeader, .cardContent, .cardActions{
+    background-color: #070F2B;
+    color: white;
+    
 }

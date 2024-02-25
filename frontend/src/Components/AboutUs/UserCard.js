@@ -36,27 +36,36 @@ export default function UserCard() {
   };
 
   return (
-    <Card className="card-container" align='center' sx={{ maxWidth: 345 }}>
-      <CardHeader
-        
-        title="name"
-        
-      />
-      <CardMedia
-        component="img"
-        
-        image={userw}
+    <Card className="card-container" align='center' sx={{ maxWidth: 320 }}>
+      
+      <div className='img-container'>
+        <CardMedia className='cardMedia'
+          component="img"
+          image={userw}
+          alt="person"
+        />
+      </div>
+
+      {/* <Avatar
         alt="person"
-        style={{ borderRadius: '50%' }}
+        src={userw}
+        sx={{ width: 56, height: 56 }}
+      /> */}
+
+      <CardHeader class="cardHeader"
+        
+        title="Peppa"
+        
       />
-      <CardContent>
+      <CardContent className='cardContent'>
         <Typography variant="body1" >
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          Frontend Developer
+        </Typography>
+        <Typography variant="body1" >
+          Backend Developer
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions className='cardActions' disableSpacing>
         
         <ExpandMore
           expand={expanded}
@@ -64,14 +73,13 @@ export default function UserCard() {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon sx={{color:'white'}}/>
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent className='quoted-text' >
           <Typography variant="body2" paragraph color={"white"}>
-            "Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes."
+            "I like to do my work."
           </Typography>
           
         </CardContent>
