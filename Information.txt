@@ -50,3 +50,24 @@ for this validation before jump into user's sighup we add one another middleware
 middleware is get execute before request is proccessed
 
 use: https://express-validator.github.io/docs
+
+--------------------------------------------
+
+After successfully sighup and login done --> generate Token for user
+
+-> this token used as IDcard of resource
+-> using it user get access to some resource
+
+--> Authentication
+-> in this step user needs to identify it's identify
+-> it provide one token as identity to each successfull logged in user
+-> for generate the token we use : JWT(JSON Web Token) library
+-> it used to encrypt payload into a signed token that has permissions of the uses.
+
+-> send this token to user process 
+-> for this we use HTTP only Cookies
+
+-> create token 
+-> send token in form od cookie --> use: "cookie-parser" for send message from backend to frontend
+-> when user logged out also cookie is remove 
+-> for every new login -> if previous cookie is exit then first remove it and after that set new cookie

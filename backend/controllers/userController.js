@@ -2,6 +2,9 @@
 const { Request, Response, NextFunction } = require("express");
 const User = require("../models/userModel.js");
 const { hash, compare } = require("bcrypt");
+const { trusted } = require("mongoose");
+const COOKIE_NAME = require("../utils/constants.js");
+const { createToken } = require("../utils/tokens.js");
 
 // get all user
 const getAllUser = async (
@@ -40,6 +43,26 @@ const userLogin = async (
     if (!isPasswordCorrect) {
       return res.status(403).send("Incorrect password");
     }
+
+    res.clearCookie(COOKIE_NAME, {
+      httpOnly: true,
+      domain: "localhost",
+      signed: true,
+      path: "/",
+    });
+    const token = createToken(user._id.toString(), user.email, "7d");
+
+    const expires = new Date();
+    expires.setDate(expires.getDate() + 7);
+
+    res.cookie(COOKIE_NAME, token, {
+      path: "/",
+      domain: "localhost",
+      expires,
+      httpOnly: true,
+      signed: true,
+    }); // using this cookie create inside browser
+
     // ----------------------------------------------------
     return res.status(201).json({
       message: "User logged in successfully.",
@@ -67,6 +90,14 @@ const userSignup = async (
     const hashPassword = await hash(password, 10);
     const user = new User({ name, email, password: hashPassword });
     await user.save();
+
+    // create token and stores cookie
+    res.clearCookie(COOKIE_NAME, {
+      httpOnly: true,
+      domain: "localhost",
+      signed: true,
+      path: "/",
+    });
     console.log("User signup.");
     return res.status(201).json({
       message: "User signed up successfully.",
