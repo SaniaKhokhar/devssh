@@ -1,0 +1,11 @@
+colors:
+https://colorhunt.co/palette/070f2b1b1a55535c919290c3
+#070F2B
+#1B1A55
+#535C91
+#9290C3
+
+Material UI:
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @mui/styled-engine-sc styled-components
+npm install @mui/icons-material

@@ -26,6 +26,7 @@ const Feedback = () => {
     }
 
     return (
+      <div className="feedback-container">
         <main className="feedback">
           <div className="feedbackpageTitle">
             <h1>Feedback </h1>
@@ -34,7 +35,7 @@ const Feedback = () => {
           <div className="feedbackbox">
             {/* <div className="grow"></div> */}
             <div>
-              <button primary onClick={openFeedbackPopupForm}>
+              <button className="suggestion-button" primary onClick={openFeedbackPopupForm}>
                 Make a suggestion
               </button>
             </div>
@@ -59,6 +60,7 @@ const Feedback = () => {
             />
           )}
         </main>
+        </div>
       );
 }
 

@@ -1,5 +1,9 @@
+.feedback-container{
+    background-color: #1B1A55;
+    height: 100%
+}
 .feedback{
-    background-color: white;
+    background-color: #1B1A55;
     overflow: scroll;
     margin-top: 10%;;
     margin-left: 25%;
@@ -13,13 +17,21 @@
 
 .feedbackpageTitle{
     padding: 4%;
-    background-image: linear-gradient(to right,rgb(79, 168, 169) ,#82dcdc);
+    background-image: linear-gradient(to right,#4f5ea9 ,#8291dc);
     font-weight: bold;
+    color: white;
     /* background-color: blue; */
      /* from-cyan-400 to-blue-400 p-8 */
 }
+
+.suggestion-button{
+    background-color: #1B1A55;
+}
+.suggestion-button :hover{
+    background-color: #535C91;
+}
 .feedbackbox{
-  background-color: #f7fafc; /* Assuming Tailwind's gray-100 translates to this hex */
+  background-color: #070F2B; /* Assuming Tailwind's gray-100 translates to this hex */
   padding: 1rem 2rem; /* Assuming px-8 translates to 1rem and py-4 translates to 2rem */
   display: flex;
   border-bottom: 1px solid #ddd;

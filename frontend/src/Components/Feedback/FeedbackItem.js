@@ -36,7 +36,7 @@ export default function FeedbackItem({
     >
       <div style={{ flexGrow: "1" }}>
         <h2 style={{ fontWeight: "bold" }}>{title}</h2>
-        <p style={{ fontSize: "0.875rem", color: "#2d3740" }}>{description}</p>
+        <p style={{ fontSize: "0.875rem", color: "#1B1A55" }}>{description}</p>
       </div>
       <div>
         {showLoginPopup && (

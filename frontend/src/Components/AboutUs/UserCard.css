@@ -1,0 +1,15 @@
+
+*{
+    color: white;
+}
+
+.card-container{
+    background-color: #070F2B;
+    margin: 5%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.quoted-text{
+    background-color: #535C91;
+}

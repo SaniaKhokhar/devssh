@@ -1,49 +1,37 @@
 import React, { useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import "../Home/Home.css";
-import chat from "../Chat/Chat";
-
+import { Button } from "react-bootstrap";
 
 const Home = () => {
-  const [isPopupOpen, setPopupOpen] = useState(false);
   const navigate = useNavigate();
 
-  const openPopup = () => {
-    setPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setPopupOpen(false);
-  };
-
   /** */
-  const handleClick = (e) => {
-    console.log(e.target.id)
-    navigate(`/Chat/${e.target.id}`, { state: { section: e.target.id } })
+  // const handleClick = (e) => {
+  //   console.log(e.target.id)
+  //   navigate(`/chat/${e.target.id}`, { state: { section: e.target.id } })
 
-    // // return <Link to="/Chat" />;
-    // // <Navigate to="Chat" />;
-    // console.log("sdc");
-  };
+  //   // // return <Link to="/Chat" />;
+  //   // // <Navigate to="Chat" />;
+  //   // console.log("sdc");
+  // };
 
   return (
+    <>
+    
     <div className="home">
-      <button onClick={openPopup} className="talkButton">
-        Talk!
+      <button 
+
+        style={{boxShadow: "10px 10px 30px #070F2B" }}
+
+        onClick={navigate('/chat/Yoga')} 
+        className="talkButton">
+
+        Let's talk with Curio!
       </button>
 
-      {isPopupOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            <p>Select your content.</p>
-            <button id="Food" onClick={handleClick}>Food Recipe</button>
-            <button id="Medicine" onClick={handleClick}>Medical</button>
-            <button id="Yoga" onClick={handleClick}>Yoga</button>
-
-          </div>
-        </div>
-      )}
     </div>
+  </>
   );
 };
 

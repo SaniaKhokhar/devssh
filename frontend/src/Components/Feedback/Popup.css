@@ -27,7 +27,7 @@
 
 /* Create a class name that reflects the element's purpose (e.g., my-card-container) */
 .card {
-  background-color: white;
+  background-color: #1B1A55;
   overflow: hidden;
 
   @media (min-width: 768px) { /* Apply additional styles for medium screens and up */
@@ -40,7 +40,7 @@
 .backbutton { /* Choose a descriptive class name */
     position: relative;
     min-height: 40px;
-  
+    background-color: #1B1A55;
     @media (min-width: 768px) { /* For medium screens and up */
       min-height: 0;
     }
@@ -65,7 +65,7 @@
     padding: 2rem 0; /* Assuming "py-4" translates to 1rem padding */
     text-align: center;
     border-bottom: 1px solid;
-    color: #93f7f7;
+    color: white;
   }
   
   .wf{
