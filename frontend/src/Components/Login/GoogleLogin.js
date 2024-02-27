@@ -4,7 +4,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './Login.css';
 export default function GoogleLogin() {
     const handleGoogleLogin = () => {
-        window.open("http://localhost:6010/auth/google/callback", "_self")
+        window.open("http://localhost:5000/auth/google/callback", "_self")
     
         // console.log('Logging in with:', email, password);
       };

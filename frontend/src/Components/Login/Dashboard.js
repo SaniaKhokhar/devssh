@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:6010/login/success", {
+      const response = await axios.get("http://localhost:5000/login/success", {
         withCredentials: true,
       });
       setUserdata(response.data.user);
@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:6010/logout");
+      await axios.get("http://localhost:5000/logout");
       UserProfile.clearDetails();
       navigate("/login");
     } catch (error) {

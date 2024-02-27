@@ -1,52 +1,62 @@
 .back {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    /* Media query for medium screens and up */
-    @media (min-width: 768px) {
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center; /* Align items vertically in the center */
-    }
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 
-.bclose{
-    display: none; /* Hide by default */
-    position: fixed;
-    top: .75%;
-    right: 25%;
-    /* color: white; */
-  
-    @media (min-width: 768px) { /* Show on medium screens and up */
-      display: block;
-    }
+  /* Media query for medium screens and up */
+  @media (min-width: 768px) {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    /* Align items vertically in the center */
   }
+}
+
+.bclose {
+  display: none;
+  /* Hide by default */
+  position: fixed;
+  top: .75%;
+  right: 25%;
+  /* color: white; */
+
+  @media (min-width: 768px) {
+    /* Show on medium screens and up */
+    display: block;
+  }
+}
 
 /* Create a class name that reflects the element's purpose (e.g., my-card-container) */
 .card {
   background-color: #1B1A55;
   overflow: hidden;
 
-  @media (min-width: 768px) { /* Apply additional styles for medium screens and up */
+  @media (min-width: 768px) {
+    /* Apply additional styles for medium screens and up */
     width: auto;
-    max-width: 2xl; /* Adjust max-width if needed */
-    border-radius: 0.5rem; /* Adjust rounded corners if needed */
+    max-width: 2xl;
+    /* Adjust max-width if needed */
+    border-radius: 0.5rem;
+    /* Adjust rounded corners if needed */
   }
 }
 
-.backbutton { /* Choose a descriptive class name */
-    position: relative;
-    min-height: 40px;
-    background-color: #1B1A55;
-    @media (min-width: 768px) { /* For medium screens and up */
-      min-height: 0;
-    }
-  }
+.backbutton {
+  /* Choose a descriptive class name */
+  position: relative;
+  min-height: 40px;
+  background-color: #1B1A55;
 
-  /* .hidden-on-md {  
+  @media (min-width: 768px) {
+    /* For medium screens and up */
+    min-height: 0;
+  }
+}
+
+/* .hidden-on-md {  
     display: none;  
     position: absolute;
     top: 4px;
@@ -54,20 +64,21 @@
     color: #6b7280;  
 
   } */
-  
-  /* @media (min-width: 768px) { 
+
+/* @media (min-width: 768px) { 
     .hidden-on-md {
       display: block;
     }
   } */
 
-  .title{
-    padding: 2rem 0; /* Assuming "py-4" translates to 1rem padding */
-    text-align: center;
-    border-bottom: 1px solid;
-    color: white;
-  }
-  
-  .wf{
-    width: 50%;
-  }
+.title {
+  padding: 2rem 0;
+  /* Assuming "py-4" translates to 1rem padding */
+  text-align: center;
+  border-bottom: 1px solid;
+  color: white;
+}
+
+.wf {
+  width: 50%;
+}

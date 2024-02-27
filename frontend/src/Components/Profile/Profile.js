@@ -12,7 +12,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:6010/profile/${userId}`);
+        const res = await axios.get(`http://localhost:5000/profile/${userId}`);
         setUser(res.data);
         // Initialize updatedUser with user data
         setUpdatedUser(res.data);

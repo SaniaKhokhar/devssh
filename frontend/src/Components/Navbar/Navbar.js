@@ -11,10 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import ai from "../../Assest/ai.png";
 import userw from "../../Assest/userw.png"
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../../Context/AuthContext'
 // const pages = [
 //   {
 //     name: 'Home',
@@ -39,6 +39,7 @@ const settings = ['Login'];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const auth = useAuth()
 
   const navigate = useNavigate()
 
@@ -63,7 +64,11 @@ function Navbar() {
       position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Avatar
+            alt="curio"
+            src={ai}
+            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+          />
           <Typography
             variant="h4"
             noWrap
@@ -147,16 +152,29 @@ function Navbar() {
                   onClick={handleCloseUserMenu}>
                   About us
               </MenuItem>
-              <MenuItem
+              {auth?.isLoggedIn ? (<MenuItem
+                  // style={{backgroundColor: "#070F2B", color: "white"}}
+                  component={Link}
+                  to={'/login' }
+                  onClick={handleCloseUserMenu}>
+                  Logout
+              </MenuItem>) 
+              : 
+              (<MenuItem
                   // style={{backgroundColor: "#070F2B", color: "white"}}
                   component={Link}
                   to={'/login' }
                   onClick={handleCloseUserMenu}>
                   Login
-              </MenuItem>
+              </MenuItem>)
+              }
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Avatar
+            alt="curio"
+            src={ai}
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -207,12 +225,21 @@ function Navbar() {
               >
                 About Us
             </Button>
-            <Button
+            {auth?.isLoggedIn ? 
+              (<Button
                 onClick={() => navigate('/login')}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                login
-            </Button>            
+                Logout
+            </Button>)
+            :
+            (<Button
+                onClick={() => navigate('/login')}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Login
+            </Button> )   
+            }          
           </Box>
 
           <Box 

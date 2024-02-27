@@ -1,8 +1,5 @@
-
-
-.card-container{
+/* .card-container{
     background-color: #070F2B;
-    /* margin: 2%; */
     border: 1px solid black;
     border-radius: 20px;
     color:white;
@@ -32,4 +29,41 @@
     background-color: #070F2B;
     color: white;
     
+} */
+.card-container {
+    background-color: #070f2b;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: white;
+    max-width: 300px;
+    /* Adjust the max-width to your desired size */
+    margin: 0 auto 20px;
+    /* Center the card horizontally and add bottom margin */
+    padding: 20px;
+    /* Add padding to the card content */
+    box-sizing: border-box;
+    /* Include padding and border in the width calculation */
+}
+
+
+.img-container {
+    background-color: #070f2b;
+}
+
+.cardMedia {
+    max-width: 50%;
+    height: auto;
+    color: white;
+    border-radius: 50%;
+}
+
+.cardHeader,
+.cardContent,
+.cardActions {
+    background-color: #070f2b;
+    color: white;
+}
+
+.quoted-text {
+    background-color: #535C91;
 }

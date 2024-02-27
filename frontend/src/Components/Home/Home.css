@@ -4,6 +4,7 @@ body {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+
   }
   
   body::-webkit-scrollbar {
@@ -17,6 +18,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #1B1A55;
+    background-image: url('../../Assest/airobot.jpg');
 }
 
 .light .talkButton {

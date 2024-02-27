@@ -19,8 +19,8 @@ export default function ReviewToast() {
 
     const getUser = async () => {
         try {
-            const response = await axios.get("http://localhost:6010/login/success", { withCredentials: true })
-            // const response = await axios.get("http://localhost:6010/api/getDetails", { withCredentials: true })
+            const response = await axios.get("http://localhost:5000/login/success", { withCredentials: true })
+            // const response = await axios.get("http://localhost:5000/api/getDetails", { withCredentials: true })
             console.log(response)
             setUserdata(response.data.user)
 

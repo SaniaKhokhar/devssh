@@ -14,7 +14,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 const App = () => {
   // for dark light mode
   const [mode, setMode] = useState("light");
-
+  
   return (
     <div className={`container ${mode}`}>
       <Navbar mode={mode} setMode={setMode} />
